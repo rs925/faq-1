@@ -66,7 +66,7 @@
                                     <a class="dropdown-item" href="{{ route('profile.show', ['user_id' => Auth::user()->id,'profile_id' => Auth::user()->profile->id]) }}">My Profile</a>
 
                                 @else
-                                    <a class="dropdown-item" href="#">Create Profile</a>
+                                    <a class="dropdown-item" href="{{ route('profile.create', ['user_id' => Auth::user()->id]) }}">Create Profile</a>
                                 @endif
 
 
@@ -89,8 +89,15 @@
     </nav>
 
     <main class="py-4">
+        <div class="col-12">
+            @include('flash.error')
+            @include('flash.messages')
+            @include('flash.status')
+
+        </div>
         @yield('content')
     </main>
+
 </div>
 </body>
 </html>
