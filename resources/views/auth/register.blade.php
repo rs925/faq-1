@@ -33,6 +33,7 @@
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
+
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('password') }}</strong>
@@ -46,6 +47,17 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="type" class="col-md-4 control-label" >User Type:</label>
+                            <div class="col-md-6">
+                                <select class="form-control" name="type" id="type">
+                                    <option value="moderator">Moderator</option>
+                                    <option value="administrator">Administrator</option>
+                                    <option value="member">Member</option>
+                                </select>
                             </div>
                         </div>
 

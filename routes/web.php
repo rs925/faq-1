@@ -33,6 +33,19 @@ Route::patch('/questions/{question_id}/answer/{answer_id}', 'AnswerController@up
 Route::delete('/questions/{question_id}/answer/{answer_id}', 'AnswerController@destroy')->name('answers.destroy');
 
 
+
 Route::resources([
     'questions' => 'QuestionController',
 ]);
+
+Route::group(['middleware'=>'/home/rs/PhpstormProjects/faq-rs925/app/Http/Middleware/adminMiddleware'],function(){
+
+});
+
+Route::group(['middleware'=>'/home/rs/PhpstormProjects/faq-rs925/app/Http/Middleware/moderatorMiddleware'],function(){
+
+});
+
+Route::group(['middleware'=>'/home/rs/PhpstormProjects/faq-rs925/app/Http/Middleware/userMiddleware'],function(){
+
+});
