@@ -31,13 +31,13 @@ class HomeController extends Controller
     public function administrator(Request $req)
     {
 
-        return view('middleware')->withMessage("administrator");
+        return view('middleware2')->withMessage("administrator");
     }
 
     public function moderator(Request $req)
     {
 
-        return view('middleware')->withMessage("moderator");
+        return view('middleware1')->withMessage("moderator");
     }
     public function member(Request $req)
     {

@@ -77,7 +77,7 @@
         </div>
     @endif
 
-    <p>Member page</p>
+    <p>Administrator Page</p>
     <div class="content">
         <div class="title m-b-md">
             Welcome to the {{strtoupper($message)}} access page.

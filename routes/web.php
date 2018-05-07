@@ -35,7 +35,7 @@ Route::resources([
     'questions' => 'QuestionController',
 ]);
 
-Route::group(['middleware' => '\App\Http\Middleware\adminMiddleware'],function(){
+Route::group(['middleware2' => '\App\Http\Middleware\adminMiddleware'],function(){
 
     Route::match(['get', 'post'], '/administratorOnlyPage/', 'HomeController@administrator');
 
@@ -46,7 +46,7 @@ Route::group(['middleware' => '\App\Http\Middleware\moderatorMiddleware'],functi
     Route::match(['get', 'post'], '/moderatorOnlyPage/', 'HomeController@moderator');
 });
 
-Route::group(['middleware' => '\App\Http\Middleware\userMiddleware.php'],function(){
+Route::group(['middleware' => '\App\Http\Middleware\userMiddleware'],function(){
 
     Route::match(['get', 'post'], '/memberOnlyPage/', 'HomeController@member');
 
