@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Middleware;
+use Illuminate\Http\Response;
+use Auth;
 
 use Closure;
 
@@ -15,7 +17,7 @@ class moderatorMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if($request->user() && $request->user()->type != 'moderator')
+        if($request->user() && $request->user()->role != 'moderator')
         { return new Response(view('unauth')->with('role','moderator'));
         }
         return $next($request);

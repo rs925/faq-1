@@ -15,16 +15,13 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/user/{user_id}/profile', 'ProfileController@create')->name('profile.create');
 Route::get('/user/{user_id}/profile/{profile_id}', 'ProfileController@show')->name('profile.show');
 Route::get('/user/{user_id}/profile/{profile_id}/edit', 'ProfileController@edit')->name('profile.edit');
 Route::post('/user/{user_id}/profile/', 'ProfileController@store')->name('profile.store');
 Route::patch('/user/{user_id}/profile/{profile_id}', 'ProfileController@update')->name('profile.update');
 Route::delete('/user/{user_id}/profile/{profile_id}', 'ProfileController@destroy')->name('profile.destroy');
-
 Route::get('/questions/{question_id}/answers/create', 'AnswerController@create')->name('answers.create');
 Route::get('/questions/{question_id}/answers/{answer_id}', 'AnswerController@show')->name('answers.show');
 Route::get('/questions/{question_id}/answers/{answer_id}/edit', 'AnswerController@edit')->name('answers.edit');
@@ -38,14 +35,19 @@ Route::resources([
     'questions' => 'QuestionController',
 ]);
 
-Route::group(['middleware'=>'/home/rs/PhpstormProjects/faq-rs925/app/Http/Middleware/adminMiddleware'],function(){
+Route::group(['middleware' => '\App\Http\Middleware\adminMiddleware'],function(){
+
+    Route::match(['get', 'post'], '/administratorOnlyPage/', 'HomeController@administrator');
 
 });
 
-Route::group(['middleware'=>'/home/rs/PhpstormProjects/faq-rs925/app/Http/Middleware/moderatorMiddleware'],function(){
+Route::group(['middleware' => '\App\Http\Middleware\moderatorMiddleware'],function(){
 
+    Route::match(['get', 'post'], '/moderatorOnlyPage/', 'HomeController@moderator');
 });
 
-Route::group(['middleware'=>'/home/rs/PhpstormProjects/faq-rs925/app/Http/Middleware/userMiddleware'],function(){
+Route::group(['middleware' => '\App\Http\Middleware\userMiddleware.php'],function(){
+
+    Route::match(['get', 'post'], '/memberOnlyPage/', 'HomeController@member');
 
 });

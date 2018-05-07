@@ -3,6 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Http\Response;
+use Auth;
 
 class userMiddleware
 {
@@ -15,8 +17,8 @@ class userMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if($request->user() && $request->user()->type != 'user')
-        { return new Response(view('unauth')->with('role','user'));
+        if($request->user() && $request->user()->role != 'member')
+        { return new Response(view('unauth')->with('role','member'));
         }
         return $next($request);
     }

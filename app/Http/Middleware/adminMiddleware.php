@@ -4,6 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 
+use Illuminate\Http\Response;
+use Auth;
+
 class adminMiddleware
 {
     /**
@@ -15,7 +18,7 @@ class adminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if($request->user() && $request->user()->type != 'administrator')
+        if($request->user() && $request->user()->role != 'administrator')
         { return new Response(view('unauth')->with('role','administrator'));
         }
         return $next($request);

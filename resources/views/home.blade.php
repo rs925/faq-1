@@ -4,6 +4,19 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
+
+                <div class="panel-body">
+                    you are logged in as a <strong>{{strtoupper(Auth::user()->role)}}</strong>
+                    <br>
+                    Administrator Page: <a href="{{ url('/') }}/administratorOnlyPage">{{ url('/') }}/administratorOnlyPage</a>
+                    <br>
+                    Moderator Page: <a href="{{ url('/') }}/moderatorOnlyPage">{{ url('/') }}/moderatorOnlyPage</a>
+                    <br>
+                    Member Page: <a href="{{ url('/') }}/memberOnlyPage">{{ url('/') }}/memberOnlyPage</a>
+                </div>
+
+
+
                 <div class="card">
                     <div class="card-header">Questions
                         <a class="btn btn-primary float-right" href="{{ route('questions.create') }}">
@@ -37,7 +50,7 @@
                                         </div>
                                     </div>
                                 @empty
-                                    There are no questions to view, you can  create a question.
+                                    There are no questions to view, you can create a question.
                                 @endforelse
 
 
