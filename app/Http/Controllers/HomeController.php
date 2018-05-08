@@ -30,7 +30,8 @@ class HomeController extends Controller
 
     public function administrator(Request $req)
     {
-
+        $user = Auth::user();
+        $questions = $user->questions()->paginate(6);
         return view('middleware2')->withMessage("administrator");
     }
 
@@ -41,7 +42,8 @@ class HomeController extends Controller
     }
     public function member(Request $req)
     {
-
+        $user = Auth::user();
+        $questions = $user->questions()->paginate(6);
         return view('middleware')->withMessage("member");
     }
 }

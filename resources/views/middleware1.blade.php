@@ -76,8 +76,8 @@
             @endauth
         </div>
     @endif
-    <p>Moderator Page</p>
 
+    <p>Moderator Page</p>
     <div class="content">
         <div class="title m-b-md">
             Welcome to the {{strtoupper($message)}} access page.

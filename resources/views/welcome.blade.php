@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    WSD Final project- FAQ access control
                 </div>
 
                 <div class="links">

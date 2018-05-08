@@ -77,7 +77,7 @@
         </div>
     @endif
 
-    <p>Member page</p>
+    <p>Member Page</p>
     <div class="content">
         <div class="title m-b-md">
             Welcome to the {{strtoupper($message)}} access page.
@@ -85,5 +85,7 @@
 
     </div>
 </div>
+
+<p>Member restriction- can only create questions, answer questions and view answers </p>
 </body>
 </html>

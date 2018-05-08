@@ -35,7 +35,7 @@ Route::resources([
     'questions' => 'QuestionController',
 ]);
 
-Route::group(['middleware2' => '\App\Http\Middleware\adminMiddleware'],function(){
+Route::group(['middleware' => '\App\Http\Middleware\adminMiddleware'],function(){
 
     Route::match(['get', 'post'], '/administratorOnlyPage/', 'HomeController@administrator');
 
